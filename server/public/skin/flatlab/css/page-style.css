@@ -1,0 +1,152 @@
+*{font-family: "Microsoft YaHei";}
+
+/*toolbar*/
+.main-toolbar{top:0px;left:0px;right:0px;height:50px;line-height:50px;overflow:hidden;padding:0px 10px;border-bottom:2px solid #f1f2f7;}
+.main-toolbar .toolbar-title{float:left;padding-left:10px;font-size:16px;font-weight:300;font-family:"Microsoft YaHei";}
+.main-toolbar .toolbar-button{float:right;}
+
+/*search-tree*/
+.tree-container{position:absolute;width:306px;bottom:0px;border-right:solid 1px #eee;top:50px;left:0px;}
+.tree-context-container{position:absolute;width:100%;bottom:0px;overflow:auto;top:50px;left:0px;}
+.search-tree{border-bottom:1px solid #F1F2F7;padding:3px 5px 6px;height:50px;}
+.search-tree .form-control{border-radius:4px 0px 0px 4px;border-right:0px;}
+.search-tree .input-group-addon{border-radius:0px 4px 4px 0px ;border:1px solid #e0e3ea;}
+
+/*context*/
+.context-container{position:absolute;top:50px;left:0px;right:0px;bottom:10px;overflow:auto;}
+.context-container .toolbar-button{float:left;margin-top:20px;}
+
+/*role*/
+.role-context-container{position:absolute;height:100%;width:100%;}
+.role-info-container{margin-top:30px;position:absolute;top:0px;height:120px;width:100%;border-bottom:2px solid #f1f2f7;}
+.role-sysrighttree-container{position:absolute;top:160px;bottom:60px;width:100%;overflow:auto;border-bottom:2px solid #f1f2f7;}
+.role-button-container{position:absolute;height:60px;bottom:0px;width:100%;padding-left:15px;}
+
+/*chooser*/
+.yui3-app-park-chooser {padding:15px;}
+.yui3-app-park-chooser table{margin:auto;}
+.yui3-app-park-chooser .paneTitle{ font-size:14px; width: 230px !important;background:#f1f1f1;height:34px; line-height:34px;padding:0 0 0 10px;  border-right:1px solid #f1f1f1;overflow: hidden;}
+.yui3-app-park-chooser .pane{border-bottom:1px solid #eee; width:228px !important;border-right:1px solid #eee;border-left:1px solid #eee; height:270px;}
+.yui3-app-park-chooser .pane > div{width:228px !important;}
+.yui3-app-park-chooser .btnPane{width:13px;}
+.yui3-app-park-chooser .quickSearchBar{position:relative;height:30px;padding:3px; border-radius: 3px; }
+.yui3-app-park-chooser .quickSearch{background-color:#fafafa;border:1px solid #eee;height:28px;width:218px;position:absolute;left:3px;border-radius: 3px; }
+.yui3-app-park-chooser .quickSearchBtn{width:26px;height:28px;position:absolute;right:5px;top:3px;border:0px;background: none;border-left: 1px solid #eee;border-radius: 3px;}
+.yui3-app-park-chooser .chooserTree{height:250px;overflow:auto;margin:auto;max-width: 100%;}
+.yui3-app-park-chooser .choosedList{height:280px;overflow:auto;margin:auto}
+.yui3-app-park-chooser .chooseBtn{background:url("../img/fieldsettings.png");height:16px;width:46px;float:left;cursor:pointer;margin:0 0 25px 3px}
+.yui3-app-park-chooser .rightBtn{background-position: -92px 0;}
+.yui3-app-park-chooser .leftBtn{background-position: 0 0;}
+
+/*usergroup*/
+.usergroup-basicinfo-context-container{position:absolute;top:60px;left:20px;right:20px;bottom:10px;overflow-y:auto;}
+.usergroup-basicinfo-context-container .toolbar-button{float:left;margin-top:20px;}
+
+
+/*通行规则*/
+.condition-context-container{background-color:#E4F4EB;border-bottom:dashed 1px #E4DDDD;margin:10px 0;padding:10px 0 10px 10px;}
+#condition-item-control{text-align: right;border-radius: 4px;}
+.condition-item-tree{background-color: #fff;border-radius: 4px;}
+.condition-left-context{border: solid 1px #C0AEAE;border-radius: 4px;padding: 0;}
+.condition-remark-container{    background-color: #E4F4EB;margin-top: 20px;border-radius: 4px;padding: 10px;position: fixed;bottom: 10px;width: 79%;right: 1%;}
+.condition-remark-title{display: inline-block;font-size: 14px;font-weight: bold;line-height: 28px;}
+.condition-submit-container{margin-bottom: 70px;}
+
+.form-horizontal .tipText span{display: inline-block;width:30px;text-align: center;line-height: 34px;font-size: 18px;cursor: pointer;}
+.form-horizontal .tempPeriod-set,.yui3-rule-container .tempPeriod-set{padding: 12px 0; background: #f9f9f9;position: relative;margin-bottom: 15px;}
+.form-horizontal .tempPeriod-set:before,.yui3-rule-container .tempPeriod-set:before{content: "";width: 0;height: 0;border-right: 10px solid transparent;border-bottom: 10px solid #f9f9f9;border-left: 10px solid transparent; position:absolute;top:-10px;left:5%;}
+.tempPeriod-list .col-sm-5 span{line-height: 34px;}
+
+/*rule*/
+.yui3-rule-container .rule-panel-title-background{background-color:#ff6c60;color: white;border-bottom: 1px solid #CCC;}
+.yui3-rule-container .main-context-container{position:absolute;top:10px;left:0;overflow-x:hidden;overflow-y:auto;}
+.yui3-rule-container .form-seprator{margin: 15px 10%;}
+.yui3-rule-container .rule-panel-title{height: 30px;border: solid 1px #CCC;border-radius:4px 4px 0 0;}
+.yui3-rule-container .form-submit-container{margin-bottom:10px;margin-top:20px;}
+.yui3-rule-container .rule-panel-control{position: absolute;top: 0px;right: 10px;bottom: 0px;font-size: 18px;margin-top: 3px;}
+.yui3-rule-container .rule-panel-control a{color:#FFF;}
+.yui3-rule-container .stair-edit-control {font-size: 20px;float: right;margin-top: 8px;}
+.yui3-rule-container .round-helper {position: absolute;width: 270px;height: 110px;left: 372px;top: 262px;background: #EEE;border: solid 1px #837A83;padding: 7px;}
+.yui3-rule-container .region-devices {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 100%;display: block;}
+.yui3-rule-container .device-form-group {height:34px;}
+.yui3-rule-container .matrix-add .slick-cell{background-color:#CDF28E !important;cursor:pointer;}
+.yui3-rule-container .matrix-add a{cursor:pointer;color:#6382AD;margin-left:10px;}
+.yui3-rule-container .add-option{color:#569FC5;margin-left:10px;cursor:pointer;}
+
+.col-no-offset-x {margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px;}
+
+#rule-con{position: relative;}
+#rule-con h3{line-height: 44px;font-size: 14px;color: #fff;text-indent: 8px;background: #58c9f3;border-top-left-radius: 5px;border-top-right-radius: 5px;margin-bottom: 0;}
+#rule-con > ul{border:1px solid #dddddd;border-bottom: none;border-bottom-right-radius: 5px;border-bottom-right-radius: 5px;padding: 0;}
+#rule-con li{text-indent: 8px; line-height: 44px;position: relative;cursor: pointer;}
+#rule-con li > ul li{border-top: 1px dotted #dddddd;}
+#rule-con >ul >li:hover{background: #fdfdfd;}
+#rule-con > ul > li{border-bottom: 1px solid #dddddd;}
+#rule-con li > ul{padding-left: 24px;}
+#rule-con .btn-set-rule{line-height: 44px; position: absolute;top:0;right:10px;z-index: 1;}
+#rule-con .btn-set-rule a{cursor: pointer;color: #555555;height:44px;line-height: 44px;}
+#rule-con .btn-set-rule a:hover span{color: #ff6b60;}
+#rule-con > div.btn-set-rule a{color:#fff;}
+#rule-con > div.btn-set-rule{right:30px;}
+
+#ruleConfig{position: absolute;z-index: 5;left:20%;width:78%;border-radius: 5px; }
+.form-radio span{font-size:14px;height:34px;line-height:34px;display: inline-block;}
+
+/*config*/
+.yui3-config-container .config-button-container {position:absolute;top:0px;left:10px;right:10px;height:40px;border-bottom:dashed 1px #E4DDDD;text-align:right;}
+.yui3-config-container .config-main-container {position:absolute;top:52px;left:10px;right:10px;bottom:0px;overflow-x:hidden;overflow-y:auto;}
+
+.yui3-config-container .config-list {margin-top:20px;}
+.yui3-config-container .config-list tr{height:40px;}
+.yui3-config-container .config-list td{border:solid 1px #CCC;}
+.yui3-config-container .config-list .name{font-weight:bold;text-align: right;}
+.yui3-config-container .config-list .config-item{width:100%;}
+
+/*calendar*/
+.yui3-calendar-container .calendar-button-container{position:absolute;top:0px;left:10px;right:10px;height:40px;border-bottom:dashed 1px #E4DDDD;text-align:right;}
+.yui3-calendar-container .calendar-main-container {position:absolute;top:45px;left:10px;right:10px;bottom:0px;overflow-x:hidden;overflow-y:auto;}
+.yui3-calendar-container .calendar-main-container .backward{background-image:url(images/custom/backward.png);width:21px;}
+.yui3-calendar-container .calendar-main-container .forward{background-image:url(images/custom/forward.png);width:21px;}
+
+.yui3-calendar-container .calendar-field {margin-left:30px;margin-top:20px;}
+.yui3-calendar-container .calendar-field table td{border:solid 2px #abd4f1;width:30px;height:28px;cursor:pointer;}
+.yui3-calendar-container .calendar-field table tr{text-align:center;height:22px;background-color:#1084D8;}
+.yui3-calendar-container .calendar-field{color:white;}
+.yui3-calendar-container .calendar-field .title{font-weight:bold;height:40px;background-color:#0566ae;}
+.yui3-calendar-container .calendar-field .head{background-color:#49789B;font-weight:bold;}
+.yui3-calendar-container .calendar-field .holiday{background-color:#f48c07;}
+.yui3-calendar-container .calendar-field .table-field{width:240px;height:270px;display:inline-block;}
+
+.yui3-calendar-container .calendar-example {position:absolute;top:20px;right:10px;width:180px;height:80px;border:solid 1px #CCC;}
+.yui3-calendar-container .calendar-example table tr{text-align:center;}
+.yui3-calendar-container .calendar-example .workday{background-color:#CCFF66;color:#0066FF;border:solid 1px #CCC;width:20px;cursor:pointer;}
+.yui3-calendar-container .calendar-example .holiday{background-color:#66FF99;color:#CC3366;border:solid 1px #CCC;width:20px;cursor:pointer;}
+
+.yui3-calendar-container .year-select {width:200px;margin-left:auto;margin-right:auto;}
+.yui3-calendar-container .year-select .year-text{display:inline-block;width:105px;text-align:center;margin:0 10px;border-radius: 5px;border: solid 1px #CCC;}
+.yui3-calendar-container .year-select a {cursor:pointer;font-size:16px;}
+
+.yui3-calendar-container .special-back{background: url("images/custom/bodyBackground.jpg") repeat scroll 0 0 transparent;}
+
+/*record-index*/
+.container-padding{padding:12px;}
+.stock-link {color:#716C6C;}
+
+.info-chart .operator-item {display:inline-block;margin:2px 5px;cursor:pointer;}
+.info-chart .entrance-info-item {padding:3px 0px 3px 5px;}
+.info-chart .info-title{font-size: 160%;color: #0566AE;font-weight: bold;padding:10px 0;}
+.info-chart .info-text{padding:0 25px;}
+.info-chart .info-row{border-bottom:solid 1px #C7C7C7;height:35px;}
+.info-chart .form-control-static {color:#716C6C;}
+.modeChart li{line-height: 34px;font-size: 12px;border-bottom: 1px dotted #ddd;}
+.client-name span{display: inline-block;line-height: 20px;padding: 4px 8px;margin:5px;color: #fff; border-radius: 3px;}
+.client-name span.normal{background:#00FF00; }
+.client-name span.abnormal{background:#FF0000; }
+
+.context-container .content-bg{background-color:#f8f8fa;padding: 10px;border-radius: 5px;}
+.context-container .edit-content span{font-size: 20px;margin-top: 8px; cursor: pointer;}
+
+/*ztree自定义*/
+.ztree li{position: relative;padding-right:20px; }
+.ztree li .status-con{position: absolute;width: 20px; height:30px;line-height: 30px;font-size: 16px;top:0;right: 0;z-index: 2;cursor: pointer;}
+.ztree li .status-con span{font: normal normal normal 14px/1 FontAwesome;color: #797979;}

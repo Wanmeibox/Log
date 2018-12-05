@@ -1,0 +1,381 @@
+.tree{
+	font-size:12px;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+    
+    color:#47596f;
+}
+.tree li{
+	white-space:nowrap;
+	list-style-type:none;
+}
+.tree li ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.tree-node{
+	height: 30px;
+    line-height: 30px;
+	white-space:nowrap;
+	cursor:pointer;
+}
+.tree-indent{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+}
+.tree-hit{
+	cursor:pointer;
+}
+.tree-expanded{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+	background:url('images/tree_arrows.gif') no-repeat -18px 0px;
+}
+.tree-expanded-hover{
+	background:url('images/tree_arrows.gif') no-repeat -50px 0px;
+}
+.tree-collapsed{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+	background:url('images/tree_arrows.gif') no-repeat 0px 0px;
+}
+.tree-collapsed-hover{
+	background:url('images/tree_arrows.gif') no-repeat -32px 0px;
+}
+.tree-folder{
+	display:inline-block;
+	background:url('images/tree_folder.gif') no-repeat;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+}
+.tree-folder-open{
+	background:url('images/tree_folder_open.gif') no-repeat;
+}
+.tree-file{
+	display:inline-block;
+	background:url('images/tree_file.gif') no-repeat;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+}
+.tree-file:before{
+    content: "\f15b";
+}
+.combo-panel .tree-file{
+    
+}
+.combo-panel .tree-file:before{
+    content: none;
+}
+
+.tree-loading{
+	background:url('images/tree_loading.gif') no-repeat;
+}
+.tree-title{
+	display:inline-block;
+	text-decoration:none;
+	vertical-align:middle;
+	padding:1px 2px 1px 2px;
+	white-space:nowrap;
+}
+
+.tree-node-hover{
+/*	background:#eaeaea;*/
+    opacity: 0.8;
+}
+.tree-node-selected{
+	background:#fff;  
+	color:#ff6b60;
+}
+.combo-panel .tree-node-selected{
+	background:inherit;  
+	color:inherit;
+}
+.tree-checkbox{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+}
+
+.tree-checkbox0{
+	background:url('images/tree_checkbox_0.gif') no-repeat;
+}
+.tree-checkbox0:before{
+    content: "\f096";
+}
+.tree-checkbox1{
+	background:url('images/tree_checkbox_1.gif') no-repeat;
+}
+.tree-checkbox1:before{
+    content: "\f046";
+}
+.tree-checkbox2{
+	background:url('images/tree_checkbox_2.gif') no-repeat;
+}
+.tree-checkbox2:before{
+    content: "\f046";
+    color:#999;
+}
+
+.tree-radio{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	vertical-align:middle;
+}
+
+.tree-radio0{
+    background:url('images/tree_radio_0.png') no-repeat 2px 2px ;
+}
+
+.tree-radio1{
+    background:url('images/tree_radio_1.png') no-repeat 2px 2px;
+}
+
+.tree-node-proxy{
+	font-size:12px;
+	padding:1px 2px 1px 18px;
+	background:#fafafa;
+	border:1px solid #ccc;
+    z-index:600000;
+}
+.tree-dnd-yes{
+	background:url('images/tree_dnd_yes.png') no-repeat 0 center;
+}
+.tree-dnd-no{
+	background:url('images/tree_dnd_no.png') no-repeat 0 center;
+}
+.tree-node-top{
+	border-top:1px dotted red;
+}
+.tree-node-bottom{
+	border-bottom:1px dotted red;
+}
+.tree-node-append .tree-title{
+	border:1px dotted red;
+}
+.tree-editor{
+	border:1px solid #ccc;
+	font-size:12px;
+	line-height:16px;
+	width:80px;
+	position:absolute;
+	top:0;
+}
+
+.icon-patrol{
+   background:url('images/online.png') no-repeat;
+}
+
+.icon-online{
+	background:url('images/online.png') no-repeat;
+}
+
+.icon-away{
+	background:url('images/away.png') no-repeat;
+}
+
+.icon-busy{
+	background:url('images/busy.png') no-repeat;
+}
+
+.icon-offline{
+	background:url('images/offline.png') no-repeat;
+}
+.icon-unit{
+	background:url('images/unit.png') no-repeat;
+}
+.icon-unit:before {
+    font-size: 13px;
+    margin: 4px 0px 0 2px;
+    content: "\f19c"!important;
+}
+.icon-role{
+	background:url('images/role.png') no-repeat;
+}
+.icon-role:before{
+    content: '\f183'!important;
+}
+.icon-nav{
+	background:url('images/nav.png') no-repeat;
+}
+.icon-group{
+	background:url('images/group.png') no-repeat;
+}
+.icon-dutygrid{
+	background:url('images/dutygrid.png') no-repeat;
+}
+.icon-cell{
+	background:url('images/cell.png') no-repeat;
+}
+.icon-maintype{
+	background:url('images/maintype.png') no-repeat;
+}
+.icon-subtype{
+	background:url('images/subtype.png') no-repeat;
+}
+.icon-childtype{
+	background:url('images/childtype.png') no-repeat;
+}
+.icon-markitem{
+	background:url('images/markitem.png') no-repeat;
+}
+.icon-shedule{
+	background:url('images/shedule.png') no-repeat;
+}
+.icon-human{
+	background:url('images/human.png') no-repeat;
+}
+.icon-human:before {
+    content: "\f007"!important;
+}
+.icon-patrolunit{
+	background:url('images/patrolunit.png') no-repeat;
+}
+.icon-eventtype{
+	background:url('images/eventtype.png') no-repeat;
+}
+.icon-folder-open{
+	background:url('images/tree_folder_open.gif') no-repeat;
+}
+.tree-folder:before{
+    content: "\f07b";
+}
+.tree-folder.tree-folder-open:before{
+    content: "\f07c";
+}
+.icon-stylebook{
+	background:url('images/stylebook.png') no-repeat;
+}
+.icon-stylebooktype{
+	background:url('images/stylebooktype.png') no-repeat;
+}
+.icon-root{
+	background:url('images/icon-root.png') no-repeat;
+}
+.icon-root:before{
+    content: "\f07b";
+}
+.icon-root.tree-folder-open:before{
+    content: "\f07c";
+}
+.icon-condition{
+	background:url('images/icon-page.png') no-repeat;
+}
+.icon-tree_user{
+	background:url('images/tree_user.png') no-repeat;
+}
+.icon-rule{
+	background:url('images/icon-fee.png') no-repeat;
+}
+.icon-coupon{
+	background:url('images/icon-discount.png') no-repeat;
+}
+.icon-condition:before{
+    content: "\f288"!important;
+}
+.icon-coupon:before{
+    content: "\f07b"!important;
+}
+.icon-right:before{
+    content: "\f0e3"!important;
+}
+.icon-coupon.tree-folder-open:before{
+    content: "\f07c";
+}
+.icon-discountgroup{
+	background:url('images/icon-rulegroup.png') no-repeat;
+}
+.icon-kalarm{
+	background:url('images/kalarm.png') no-repeat;
+}
+.icon-camera{
+	background:url('images/camera.png') no-repeat;
+}
+.icon-device{
+	background:url('images/icon-device.png') no-repeat;
+}
+.icon-entrance{
+	background:url('images/icon-entrance.png') no-repeat;
+}
+.icon-arrow{
+	background:url('images/arrow.png') no-repeat;
+}
+.icon-usergroup{
+	background:url('images/icon-usergroup.png') no-repeat;
+}
+.icon-usergroup:before{
+    content: "\f07b"!important;
+}
+.icon-usergroup.tree-folder-open:before{
+    content: "\f07c";
+}
+.icon-rulegroup{
+	background:url('images/icon-rulegroup.png') no-repeat;
+}
+.icon-rulegroup:before{
+    content: "\f07b"!important;
+}
+.icon-rulegroup.tree-folder-open:before{
+    content: "\f07c";
+}
+
+
+.tree-icon,
+.tree-file,
+.tree-checkbox,
+.tree-node span[class*="icon-"]{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    background: none!important;
+    font-size: 16px;
+}
+
+.icon-user{
+	background:url('images/icon-user.png') no-repeat;
+}
+.icon-user:before {
+    content: "\f007"!important;
+}
+.icon-carcard{
+	background:url('images/icon-carcard.png') no-repeat;
+}
+.icon-template{
+	background:url('images/icon-template.png') no-repeat;
+}
+.icon-partition {
+	background:url('images/icon-rulegroup.png') no-repeat;
+}
+.icon-partition:before{
+    content: "\f07b"!important;
+}
+.icon-partition.tree-folder-open:before{
+    content: "\f07c";
+}
+.icon-level {
+	background:url('images/icon-rulegroup.png') no-repeat;
+}
+.icon-operator {
+	background:url('images/icon-user.png') no-repeat;
+}
+.icon-operator:before {
+    content: "\f007"!important;
+}
+.icon-none{
+    display: none!important;
+}

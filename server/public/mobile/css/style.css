@@ -1,0 +1,246 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.mui-content{height: 100%;}
+.color-danger{color:#dd524d!important;}
+
+html,
+body {
+    background-color: #efeff4;
+}
+.mui-views,
+.mui-view,
+.mui-pages,
+.mui-page,
+.mui-page-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efeff4;
+}
+.mui-pages {
+    top: 46px;
+    height: auto;
+}
+.mui-scroll-wrapper,
+.mui-scroll {
+    background-color: #efeff4;
+}
+.mui-page.mui-transitioning {
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+}
+.mui-page-left {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.mui-ios .mui-page-left {
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+}
+.mui-navbar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    height: 44px;
+    background-color: #f7f7f8;
+}
+.mui-navbar .mui-bar {
+    position: absolute;
+    background: transparent;
+    text-align: center;
+}
+.mui-android .mui-navbar-inner.mui-navbar-left {
+    opacity: 0;
+}
+.mui-ios .mui-navbar-left .mui-left,
+.mui-ios .mui-navbar-left .mui-center,
+.mui-ios .mui-navbar-left .mui-right {
+    opacity: 0;
+}
+.mui-navbar .mui-btn-nav {
+    -webkit-transition: none;
+    transition: none;
+    -webkit-transition-duration: .0s;
+    transition-duration: .0s;
+}
+.mui-navbar .mui-bar .mui-title {
+    display: inline-block;
+    width: auto;
+}
+.mui-page-shadow {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 16px;
+    height: 100%;
+    z-index: -1;
+    content: '';
+}
+.mui-page-shadow {
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+}
+.mui-navbar-inner.mui-transitioning,
+.mui-navbar-inner .mui-transitioning {
+    -webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+.mui-page {
+    display: none;
+}
+.mui-pages .mui-page {
+    display: block;
+}
+.mui-page .mui-table-view:first-child {
+    margin-top: 15px;
+}
+.mui-page .mui-table-view:last-child {
+    margin-bottom: 30px;
+}
+.mui-input-group,
+.mui-table-view {
+    margin-top: 20px;
+}
+
+.mui-input-row label{width: 25%;}
+.mui-input-row label~input{width: 75%;}
+
+.mui-table-view span.mui-pull-right {
+    color: #999;
+}
+.mui-table-view-divider {
+    background-color: #efeff4;
+    font-size: 14px;
+}
+.mui-table-view-divider:before,
+.mui-table-view-divider:after {
+    height: 0;
+}
+.update {
+    font-style: normal;
+    color: #999999;
+    margin-right: -25px;
+    font-size: 15px
+}
+.mui-fullscreen {
+    position: fixed;
+    z-index: 20;
+    background-color: #000;
+}
+.mui-ios .mui-navbar .mui-bar .mui-title {
+    position: static;
+}
+
+.title {
+    margin: 20px 15px -10px;
+    color: #6d6d72;
+    font-size: 15px;
+}
+#about p {
+    text-indent: 22px;
+    padding: 5px 8px;
+}
+#about .mui-page-content{
+    background-color: #fff;
+}
+.success:before{content: '正常';color:green;}
+.error:before{content: '异常';color:red;}
+.close:before{content: '关闭';color:gray;}
+
+#ProgressBar{
+	width:100%;
+	height:100%;
+	bottom:0px;
+	right:0px;
+	position:fixed;
+	_top:0px;
+	_left:0px;
+	_position:absolute;
+	background:#48CFAE;
+	display:none;
+	visibility:hidden;
+	z-index:1010;
+}
+/* index page end */
+
+
+#ProgressBar div.progressBarCon{
+	width:282px;
+	color:#FFFFFF;
+	font-size:12px;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 180px;
+}
+#ProgressBar p.progressBarDes{
+	text-align:left;
+    color: #fff;
+}
+#ProgressBar p.progressBarDone{
+	margin-top:10px;
+	text-align:left;
+	visibility:hidden;
+    color: #fff;
+    font-size: 12px;
+}
+#ProgressBar div.progressBarBg{
+	padding:5px;
+	margin-top:12px;
+	border-radius:3px;
+	overflow:hidden;
+	background:#FFFFFF;
+    box-sizing: content-box;
+}
+#ProgressBar p.progressBarDe{
+	width:20px;
+	height:20px;
+	line-height:20px;
+	text-align:right;
+	padding-right:2px;
+	border-radius:3px;
+	background:#FB6E52;
+    margin: 0;
+    font-size: 12px;
+    color: #fff;
+}
+
+
+.missionstate{
+    float: right;
+    margin-right: 20px;
+}
+[missionstate="0"] .missionstate:before{content: '去完成';color: crimson;}
+[missionstate="1"] .missionstate:before{content: '审核中';color:coral;}
+[missionstate="2"] .missionstate:before{content: '已完成';color:forestgreen;}
+
+#usermission [missionstate="0"] .missionstate:before{content: '未完成';color: crimson;}
+#usermission [missionstate="1"] .missionstate:before{content: '待审核';color:coral;}
+#usermission [missionstate="2"] .missionstate:before{content: '已完成';color:forestgreen;}
+
+
+#users [missionstate="0"] .missionstate:before{content: '未完成';color: crimson;}
+#users [missionstate="1"] .missionstate:before{content: '待审核';color:coral;}
+#users [missionstate="2"] .missionstate:before{content: '已完成';color:forestgreen;}
+
+
+#screenshotList img{width: 100%;}
+
+#missionState.missionstate0:before{content: '任务未提交';color: crimson;}
+#missionState.missionstate1:before{content: '已提交任务，请等待审核';color: coral;}
+#missionState.missionstate2:before{content: '已完成任务';color: forestgreen;}
+
+#verify .state0{display: none;}
