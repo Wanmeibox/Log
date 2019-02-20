@@ -8,7 +8,9 @@ var bodyParser = require('body-parser');
 var fs = require("fs");
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var http = require('http');
+var https = require('https');
+var Resovle = require('./other/Resovle');
 
 var app = express();
 
@@ -59,6 +61,90 @@ app.use('/qr/room',function(req,res){
 });
 app.use('/qr_go',function(req,res){
     res.redirect('/qr/room?p='+req.query.p+'&d='+req.query.d);
+});
+
+var httpGet = function(path){
+    return new Promise(function (resolve, reject) {
+        var body = '';
+        var req = http.request(path, function(res) {
+            res.on('data',function(d){
+                body += d;
+            }).on('end', function(){
+                resolve(body);
+            });
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+            reject(e);
+        })
+        req.end();
+    });
+}
+var httpsGet = function(path){
+    return new Promise(function (resolve, reject) {
+        var body = '';
+        var req = https.request(path, function(res) {
+            res.on('data',function(d){
+                body += d;
+            }).on('end', function(){
+                resolve(body);
+            });
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+            reject(e);
+        })
+        req.end();
+    });
+}
+var httpsGetImg = function(obj){
+    return new Promise(function (resolve, reject) {
+        var body = '';
+        var req = https.request(obj, function(res) {
+            resolve(res.headers.location)
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+            reject(e);
+        })
+        req.end();
+    });
+}
+app.use('/http',async function(req,res){
+    var url = decodeURIComponent(req.query.url);
+    var start = decodeURIComponent(req.query.start);
+    var end = decodeURIComponent(req.query.end);
+    var type = decodeURIComponent(req.query.type);
+
+    console.log(url);
+    console.log(start);
+    console.log(end);
+    var content = url.indexOf('https') === 0 ? await httpsGet(url) : await httpGet(url);
+    // console.log(content);
+    if(start && start != "undefined"){
+        if(type == "list"){
+            content = Resovle.Resovles(content,start,end);
+            console.log('Resovles')
+        }else{
+            content = Resovle.Resovle(content,start,end);
+            console.log('Resovle')
+        }
+    }
+    res.send(content);
+});
+app.use('/img',async function(req,res){
+    var url = decodeURIComponent(req.query.url);
+    var ref = decodeURIComponent(req.query.ref);
+    console.log(url);
+    var option = {
+        host:url.substr(8,url.indexOf('/',10)-8),
+        port:'443',
+        method:'GET',
+        path:url.substr(url.indexOf('/',10)),
+        headers:{
+            Referer: ref
+        }
+    }
+    console.log(option);
+    var content = url.indexOf('https') === 0 ? await httpsGetImg(option) : await httpGet(url);
+    res.redirect(content);
 });
 
 app.get('/stop',function(request,response){

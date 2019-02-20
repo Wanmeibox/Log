@@ -1,3 +1,4 @@
+<script>
 
 
 function GetGoodString(context,substring,turn){
@@ -30,7 +31,7 @@ function GetGoodString(context,substring,turn){
 }
 
 
-function Resovle(context, startString, stopString, isTurn, subIndex = 0)
+function Resovle(context, startString, stopString, isTurn, subIndex)
 {
     var res = null,subIndex = 0;
     var start = startString.split('*');
@@ -83,7 +84,7 @@ function Resovle(context, startString, stopString, isTurn, subIndex = 0)
 }
 
 
-function Resovles(context, startString, stopString, isTurn, subIndex = 0)
+function Resovles(context, startString, stopString, isTurn, subIndex)
 {
     var list = [];
     var start = startString.split('*');
@@ -154,3 +155,4 @@ String.prototype.toObject = function(obj){
     }
     return string;
 }
+</script>

@@ -153,22 +153,33 @@ var hzlog = {
                 method:method,
                 para:para
             });
+            hzlog.groupCallback.push(callback);
         }else{
             hzlog.group = new Array();
             hzlog.group.push({
                 method:method,
                 para:para
             });
+            hzlog.groupCallback = new Array();
+            hzlog.groupCallback.push(callback);
             window._hzlog_send = function(){
                 var para = "list=" + encodeURIComponent(JSON.stringify(hzlog.group));
+                var paraCallback = hzlog.groupCallback;
                 hzlog.group = null;
+                hzlog.groupCallback = null;
                 ajaxFunction(hzlog.api_url + 'group','POST',para,function(res){
                     if(typeof(res) == "string"){
                         try{
                             res = JSON.parse(res);
                         }catch(e){}
                     }
-                    callback && callback(res);
+                    if(res && res.result && res.result.length){
+                        for(var i=0;i<paraCallback.length;i++){
+                            if(paraCallback[i]){
+                                paraCallback[i](res.result[i]);
+                            }
+                        }
+                    }
                 });
             }
             window._hzlog_timer = setTimeout(window._hzlog_send,400);

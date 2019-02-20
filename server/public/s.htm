@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="never">
+    <title>Document</title>
+    <script src="js/common.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/api.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body{width: 100%;}
+        .form{position: fixed;top: 0;height: 30px;width: 100%;}
+        .form > *{font-size: 16px;line-height: 30px;}
+        .form button{padding: 0;}
+    img{width:100%;max-width: 640px;}
+    #list{font-size: 0;}
+    #list .item{width:50%;display: inline-block;}
+    #list span{font-size: 13px;}
+#article,#set{
+    display:none;
+}
+    </style>
+</head>
+<body>
+    <div class="form" id="form">
+        <button id="sets">set</button>
+        <input type="url" id="url" value="https://" style="width:45%;font-size: 12px;">
+        <button id="get">get</button>
+        <button id="next">next</button>
+    </div>
+    <div style="height:30px;"></div>
+    <div id='set'>
+        <div class="form">
+            <input type="url" id="a">
+            <input type="url" id="b">
+            <button class="save">save</button>
+            <button class="close">close</button></span>
+        </div>
+    </div>
+    <div style="height:30px;"></div>
+    <div id='article'>
+        <div class="form">
+            <button class="close" style="float:right;">close</button>
+            <span style="float:right;">last:<span class="count"></span></span>
+            <button class="try" style="float:right;">try</button>
+        </div>
+        <div style="height:30px;"></div>
+        <div id="content"></div>
+    </div>
+    <div id='list'></div>
+    <script>
+        var a = Storage.get('a');
+        var b = Storage.get('b');
+        var list = [];
+        var hrefs;
+    function getList(url){
+        $('#get,#next').attr('disabled',true);
+        $.ajax({
+            type : 'GET',
+            url : '/http?type=list&start=<article*>&end=</article>&url=' + url,
+            cache : false,
+            dataType : 'json',
+            success : function(res) {
+                $('#list').html('')
+                res.forEach(content => {
+                    var item = {
+                        img:Resovle(content,'<img*src="','"'),
+                        title:Resovle(content,'<h2><a*>','</a>'),
+                        link:Resovle(content,'<a*href="','"')
+                    };
+                    list.push(item);
+                    $('#list').append(`<div class="item" onclick="getArticle('${item.link}')">
+                        <img src="${item.img}" />
+                        <span>${item.title}</span>
+                        </div>`);
+                });
+                $('#get,#next').removeAttr('disabled');
+            },
+            error : function(res) {
+                if (error) {
+                    error(res);
+                }
+            }
+        });
+    }
+
+    function getArticle(href){
+        $('#list,#form').hide();
+        $('#article').show();
+        $('#content').html('');
+        $.ajax({
+            type : 'GET',
+            url : '/http?start=<div class="article-paging">&end=</div>&url=' + href,
+            cache : false,
+            success : function(res) {
+                hrefs = Resovles(res,'<a*href="','"');
+                // hrefs.forEach(page => {
+                //     getP(page);
+                // });
+                $('#count').text(hrefs.length);
+                getP();
+            },
+            error : function(res) {
+                if (error) {
+                    error(res);
+                }
+            }
+        });
+    }
+    function getP(){
+        var href = hrefs[0];
+        $.ajax({
+            type : 'GET',
+            url : '/http?start=<article*>&end=</article>&url=' + href,
+            cache : false,
+            success : function(res) {
+                hrefs.shift();
+                $('#content').append(res.replaceAll(`<img src="${a}`,`<img src="/img?ref=${b}&url=${a}`));
+                if(hrefs && hrefs.length){
+                    getP(hrefs);
+                }
+                $('.count').text(hrefs.length);
+            },
+            error : function(res) {
+                if (error) {
+                    error(res);
+                }
+            }
+        });
+    }
+    $('#article .close').on('click touchstart',function(){
+        $('#article').hide();
+        $('#list,#form').show();
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+    });
+    $('#article .try').on('click touchstart',function(){
+        getP();
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+    });
+
+    $('#set .save').click(function(){
+        a = $('#a').val();
+        b = $('#b').val();
+        Storage.set('a',a);
+        Storage.set('b',b);
+    });
+    $('#sets').click(function(){
+        $('#article,#list').hide();
+        $('#set').show();
+    });
+    $('#set .close').on('click',function(){
+        $('#set').hide();
+        $('#list,#form').show();
+    });
+
+$('#get').click(function(){
+    var url = $('#url').val();
+    Storage.set('url',url);
+    getList(url);
+});
+var page = 2;
+$('#next').click(function(){
+    var url = $('#url').val();
+    if(url.indexOf('page') == -1){
+        page = 2;
+        url += '/page/' + page ++;
+    }else{
+        page = parseInt(url.substr(url.lastIndexOf('/')+1));
+        url = url.substr(0,url.lastIndexOf('/')+1) + ++page;
+    }
+    $('#url').val(url);
+    Storage.set('url',url);
+    getList(url);
+});
+$('#url').val(Storage.get('url'));
+$('#a').val(a);
+$('#b').val(b);
+    </script>
+</body>
+</html>

@@ -5,8 +5,7 @@ var cache_time_general_short = '2s';
 var cache_time_radio = '1d';
 var cache_time_album = '1d';
 
-var api_url = 'http://pwapp.org:7070/';
-//var api_url = '/';
+var api_url = '/';
 //var api_url = 'http://127.0.0.1:8088/';
 
 function api_ajax(action, para, success, error) {
@@ -52,9 +51,6 @@ function ajax_general(action, para, success, error) {
             return;
         }
     }
-    if(para.spinner){
-        showLoadding();
-    }
     if (para.async == undefined) {
         para.async = true;
     }
@@ -67,9 +63,6 @@ function ajax_general(action, para, success, error) {
     }
     
     api_ajax(action,para,function(res) {
-        if(para.spinner){
-            hideLoadding();
-        }
         if (para.cache) {
             _SET_DATA(action + JSON.stringify(para.data), res,para.cache);
         }
@@ -81,9 +74,8 @@ function ajax_general(action, para, success, error) {
 }
 
 function getGeneralData() {
-    var session = Storage.get('session') || {};
     return {
-        token:session.token
+        token:''
     }
 }
 
@@ -93,22 +85,20 @@ function getGeneralData() {
     'user/logout',                       
     'user/changePassword',                       
     
-    //mission
-    'api/mission/getMission',
-    'api/mission/getMissions',
-    'api/mission/getMyMissions',
-    'api/mission/getMissionLog',
-    'api/mission/changeMissionLogState',
-    'api/mission/addSrceenShots',
-    
-    //group,member
-    'api/group/getLeaderGroups',
-    'api/group/getGroupMembers',
-    
-    //微信相关
-    'api/wechat/signature'                        
+    //
+    'api/status',                        
+    'api/sysversion',                        
+    'api/reset',                        
+    'api/reboot',                        
+    'api/update',                        
+    'api/config/get',                        
+    'api/config/set',                  
+    'api/ipconfig/get',                        
+    'api/ipconfig/set',                    
+    'api/settings/get',                        
+    'api/settings/set'                        
 ].forEach(function(item){
-    window[("api_"+item).replaceAll('/','_').replace('api_api_','api_')] = function(para, success, error){
+    window[("api_"+item).replaceAll('/','_')] = function(para, success, error){
         var url = item;
         
         var data = getGeneralData();
@@ -127,8 +117,7 @@ function getGeneralData() {
             data : data,
             cache : false,
             type : para._type,
-            contentType : para._contentType,
-            spinner: para._spinner === undefined ? true : para._spinner
+            contentType : para._contentType
         }, function(res) {
             if(res.success){
                 if (success) {
@@ -141,7 +130,7 @@ function getGeneralData() {
                         Box.alert(res.message,null,{
                             ok:function(){
                                 delete window._disabled;
-                                parent.location = '/mobile/login.html';
+                                parent.location = '/';
                             }
                         });
                     }
@@ -152,70 +141,4 @@ function getGeneralData() {
         }, error);
     }
 });
-
-function getSignature(){
-    api_wechat_signature({url:location.href},function(data){
-        var d = data;
-        wx.config({
-            debug: false,
-            appId: d.appId,
-            timestamp: d.timestamp,
-            nonceStr: d.nonceStr,
-            signature: d.signature,
-            jsApiList: [
-                "onMenuShareTimeline",
-                "onMenuShareAppMessage",
-                "onMenuShareQQ",
-                "onMenuShareWeibo",
-                "onMenuShareQZone",
-                "startRecord",
-                "stopRecord",
-                "onVoiceRecordEnd",
-                "playVoice",
-                "pauseVoice",
-                "stopVoice",
-                "onVoicePlayEnd",
-                "uploadVoice",
-                "downloadVoice",
-                "chooseImage",
-                "previewImage",
-                "uploadImage",
-                "downloadImage",
-                "translateVoice",
-                "getNetworkType",
-                "openLocation",
-                "getLocation",
-                "hideOptionMenu",
-                "showOptionMenu",
-                "hideMenuItems",
-                "showMenuItems",
-                "hideAllNonBaseMenuItem",
-                "showAllNonBaseMenuItem",
-                "closeWindow",
-                "scanQRCode",
-                "chooseWXPay",
-                "openProductSpecificView",
-                "addCard",
-                "chooseCard",
-                "openCard"
-            ]
-        });
-
-        wx.ready(function () {
-        });
-
-        wx.error(function (res) {
-            showMessage(res.errMsg);
-        });
-
-        window.close = function(){
-        wx.closeWindow();
-        }
-    },function(res){
-        mui.toast(res.message);
-        this._pending_login.ok();
-        return false;
-    });
-}
-
 
